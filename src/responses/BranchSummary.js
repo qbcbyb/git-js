@@ -30,6 +30,7 @@ BranchSummary.parse = function (commit) {
 
    commit.split('\n')
       .forEach(function (line) {
+         line = line.replace(/\r/g, '');
          var detached = true;
          var branch = BranchSummary.detachedRegex.exec(line);
          if (!branch) {
